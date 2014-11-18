@@ -1,0 +1,36 @@
+A project for doing simple particle filtering in Python.
+It can be used create some nice graphs, figures and movies.
+
+List of files as a starting point:
+
+settings.py
+	- Adjust parameters here
+
+run_generate_data.py
+	- Generate image data to test particle filter on
+	- Requires numpy, Python Imaging Library, Aggdraw
+		
+run_particle_filter.py
+	- run_particle_filter
+
+plot.py
+	- Plot reference vs. estimated trajectory
+	- Requires matplotlib
+
+plot_timing.py
+	- Bar plot of timing from the Sequenctial Importance Sampling with Resampling procedure.
+	- Requires matplotlib
+
+plot_histogram.py
+	- Plot histogram of particle distribution.
+	- Requires matplotlib
+
+plot_tree.py
+	- Plot tree of evolution of particles.
+	- Requires matplotlib, Imagemagick.
+
+
+
+If you want to make movies from the image frames:
+`avconv -r 10 -i image%06d.png movie.mp4'
+Here -r 10 means 10 frames per second.
