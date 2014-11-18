@@ -101,8 +101,7 @@ class Sir():
         timing.append(timer(self.multiply_weights))
         timing.append(timer(self.normalize))
         timing.append(timer(self.compute_num_effective_particles))
-#        timing.append(timer(self.systematic_resampling))
-        timing.append(0.0)
+        timing.append(timer(self.systematic_resampling))
 
         for i, t in enumerate(timing):
             self.timing[i] += t
