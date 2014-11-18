@@ -26,7 +26,7 @@ def make_image_pyplot(n,  theta):
     
 
 def make_image(n, theta):
-    fig = draw.AggDraw()
+    fig = draw.Draw()
     m = model.Model()
     m.set_state(theta)
     fig.plot(origo + m.start, origo + m.end)
