@@ -25,13 +25,16 @@ num_likelihood_features = 16
 num_images = 500
 
 # Origin of image
-origo = 200, -100
+origo = 225, -220
 
 # Size of image
-width, height = 400, 400
+width, height = 450, 450
 
 image_color_mode = 'L'
 #image_color_mode = 'RGB'
 
 def noise_func():
     return 0.5 * (numpy.random.rand(1) - 0.5)
+
+def initialization_func():
+    return numpy.linspace(-numpy.pi, numpy.pi, num_particles)

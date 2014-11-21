@@ -17,19 +17,21 @@ def make_image_pyplot(n,  theta):
     m = model.Model()
     m.set_state(theta)
     pyplot.hold(True)
-    pyplot.plot([m.start[0], m.end[0]], [m.start[1], m.end[1]], linewidth=4.0, color='black')
+    for line in m.lines:
+        pyplot.plot([line.start[0], line.end[0]], [line.start[1], line.end[1]], linewidth=4.0, color='black')
     circ = pyplot.Circle(m.ball, 15.0, color='r', zorder=2)
     fig.gca().add_artist(circ)
-    pyplot.xlim([-120, 120])
-    pyplot.ylim([-240, 0])
-    fig.savefig(os.path.join(settings.source_image_dir, 'image%06d.pdf'%n))
+    pyplot.xlim([-240, 240])
+    pyplot.ylim([-240, 240])
+    fig.savefig(os.path.join(settings.source_image_dir, 'image%06d.pdf'%n), transparent=True)
     
 
 def make_image(n, theta):
     fig = draw.Draw()
     m = model.Model()
     m.set_state(theta)
-    fig.plot(origo + m.start, origo + m.end)
+    for line in m.lines:
+        fig.plot(origo + line.start, origo + line.end)
     fig.circle(origo + m.ball, 15.0)
     fig.save(os.path.join(settings.source_image_dir, 'image%06d.png'%n))
     

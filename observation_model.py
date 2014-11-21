@@ -40,10 +40,11 @@ class ObservationModel(object):
     def compute_likelihood_using_contours(self, state):
         self.model.set_state([state])
         sum_ = 0.0
-        normal = self.model.normal(0.0)
+#        normal = self.model.normal(0.0)
         for i in range(settings.num_likelihood_features):
             t = float(i) / float(settings.num_likelihood_features)
             pt = self.model.evaluate(t)
+            normal = self.model.normal(t)
             sum_ += self.detect_edge(pt+origo, normal)
         return sum_
 
